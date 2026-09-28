@@ -1,0 +1,203 @@
+# Practical 11: Matrix Operations
+# Aim: Solve matrix equations, find eigenvalues,
+# inverse and transpose of matrices.
+
+import numpy as np
+
+
+# ---------------------------------------------------
+# 1. Create a Matrix
+# ---------------------------------------------------
+
+print("--- Matrix Creation ---")
+
+A = np.array([
+    [2, 1],
+    [1, 3]
+])
+
+print("Matrix A:")
+print(A)
+
+
+# ---------------------------------------------------
+# 2. Create another Matrix
+# ---------------------------------------------------
+
+B = np.array([
+    [4, 5],
+    [6, 7]
+])
+
+print("\nMatrix B:")
+print(B)
+
+
+# ---------------------------------------------------
+# 3. Matrix Addition
+# ---------------------------------------------------
+
+print("\n--- Matrix Addition ---")
+
+print("A + B:")
+print(A + B)
+
+
+# ---------------------------------------------------
+# 4. Matrix Subtraction
+# ---------------------------------------------------
+
+print("\n--- Matrix Subtraction ---")
+
+print("A - B:")
+print(A - B)
+
+
+# ---------------------------------------------------
+# 5. Matrix Multiplication
+# ---------------------------------------------------
+
+print("\n--- Matrix Multiplication ---")
+
+print("A x B:")
+
+result = np.dot(A, B)
+
+print(result)
+
+
+# ---------------------------------------------------
+# 6. Matrix Transpose
+# ---------------------------------------------------
+
+print("\n--- Matrix Transpose ---")
+
+print("Transpose of Matrix A:")
+
+transpose_A = A.T
+
+print(transpose_A)
+
+
+# ---------------------------------------------------
+# 7. Find Inverse using np.linalg.inv()
+# ---------------------------------------------------
+
+print("\n--- Matrix Inverse ---")
+
+inverse_A = np.linalg.inv(A)
+
+print("Inverse of Matrix A:")
+print(inverse_A)
+
+
+# ---------------------------------------------------
+# 8. Verify Inverse
+# ---------------------------------------------------
+
+print("\n--- Verification of Inverse ---")
+
+identity_matrix = np.dot(A, inverse_A)
+
+print("A × A inverse:")
+print(identity_matrix)
+
+
+# ---------------------------------------------------
+# 9. Solve Matrix Equation AX = B
+# ---------------------------------------------------
+
+print("\n--- Solving Matrix Equation ---")
+
+# Matrix equation:
+# AX = B
+
+A = np.array([
+    [2, 1],
+    [1, 3]
+])
+
+B_vector = np.array([5, 6])
+
+print("Matrix A:")
+print(A)
+
+print("\nB vector:")
+print(B_vector)
+
+
+# Solve AX = B
+X = np.linalg.solve(A, B_vector)
+
+print("\nSolution X:")
+print(X)
+
+
+# ---------------------------------------------------
+# 10. Verify the solution
+# ---------------------------------------------------
+
+print("\n--- Verification of Solution ---")
+
+verification = np.dot(A, X)
+
+print("A × X:")
+print(verification)
+
+print("\nOriginal B:")
+print(B_vector)
+
+
+# ---------------------------------------------------
+# 11. Find Eigenvalues and Eigenvectors
+# ---------------------------------------------------
+
+print("\n--- Eigenvalues and Eigenvectors ---")
+
+A = np.array([
+    [2, 1],
+    [1, 3]
+])
+
+eigenvalues, eigenvectors = np.linalg.eig(A)
+
+print("Matrix A:")
+print(A)
+
+print("\nEigenvalues:")
+print(eigenvalues)
+
+print("\nEigenvectors:")
+print(eigenvectors)
+
+
+# ---------------------------------------------------
+# 12. Display individual eigenvalues
+# ---------------------------------------------------
+
+print("\n--- Individual Eigenvalues ---")
+
+for i, value in enumerate(eigenvalues):
+    print("Eigenvalue", i + 1, ":", value)
+
+
+# ---------------------------------------------------
+# 13. Calculate determinant
+# ---------------------------------------------------
+
+print("\n--- Determinant ---")
+
+determinant = np.linalg.det(A)
+
+print("Determinant of A:", determinant)
+
+
+# ---------------------------------------------------
+# 14. Matrix properties
+# ---------------------------------------------------
+
+print("\n--- Matrix Properties ---")
+
+print("Shape of A:", A.shape)
+print("Number of dimensions:", A.ndim)
+print("Data type:", A.dtype)
