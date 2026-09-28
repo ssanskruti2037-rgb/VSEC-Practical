@@ -1,0 +1,234 @@
+# Practical 5: Pandas Series, DataFrames and CSV Files
+# Aim: Create Series and DataFrames, perform basic operations,
+# and import/export CSV files.
+
+import pandas as pd
+
+
+# ---------------------------------------------------
+# 1. Create a Pandas Series
+# ---------------------------------------------------
+
+print("--- Pandas Series ---")
+
+marks = pd.Series([85, 90, 78, 92, 88])
+
+print("Marks Series:")
+print(marks)
+
+print("Type of Series:", type(marks))
+
+
+# ---------------------------------------------------
+# 2. Create Series with custom index
+# ---------------------------------------------------
+
+print("\n--- Series with Custom Index ---")
+
+marks = pd.Series(
+    [85, 90, 78, 92, 88],
+    index=["Amit", "Rahul", "Sneha", "Priya", "Neha"]
+)
+
+print(marks)
+
+
+# ---------------------------------------------------
+# 3. Access elements from Series
+# ---------------------------------------------------
+
+print("\n--- Accessing Series Elements ---")
+
+print("Marks of Rahul:", marks["Rahul"])
+print("Marks of Priya:", marks["Priya"])
+
+
+# ---------------------------------------------------
+# 4. Basic Series operations
+# ---------------------------------------------------
+
+print("\n--- Series Operations ---")
+
+print("Maximum marks:", marks.max())
+print("Minimum marks:", marks.min())
+print("Average marks:", marks.mean())
+print("Total marks:", marks.sum())
+
+
+# ---------------------------------------------------
+# 5. Create a DataFrame
+# ---------------------------------------------------
+
+print("\n--- Pandas DataFrame ---")
+
+data = {
+    "Name": ["Amit", "Rahul", "Sneha", "Priya", "Neha"],
+    "Age": [20, 21, 20, 22, 21],
+    "Marks": [85, 90, 78, 92, 88],
+    "Branch": [
+        "Computer",
+        "Computer",
+        "IT",
+        "Computer",
+        "IT"
+    ]
+}
+
+df = pd.DataFrame(data)
+
+print("DataFrame:")
+print(df)
+
+
+# ---------------------------------------------------
+# 6. Display first rows using df.head()
+# ---------------------------------------------------
+
+print("\n--- First 5 Rows ---")
+
+print(df.head())
+
+
+# ---------------------------------------------------
+# 7. Display last rows using df.tail()
+# ---------------------------------------------------
+
+print("\n--- Last 5 Rows ---")
+
+print(df.tail())
+
+
+# ---------------------------------------------------
+# 8. Display selected number of rows
+# ---------------------------------------------------
+
+print("\n--- First 3 Rows ---")
+
+print(df.head(3))
+
+print("\n--- Last 2 Rows ---")
+
+print(df.tail(2))
+
+
+# ---------------------------------------------------
+# 9. Display DataFrame information
+# ---------------------------------------------------
+
+print("\n--- DataFrame Information ---")
+
+print("Shape:", df.shape)
+print("Columns:", df.columns.tolist())
+print("Index:", df.index)
+
+
+# ---------------------------------------------------
+# 10. Access a column
+# ---------------------------------------------------
+
+print("\n--- Accessing Columns ---")
+
+print("Names:")
+print(df["Name"])
+
+print("\nMarks:")
+print(df["Marks"])
+
+
+# ---------------------------------------------------
+# 11. Access multiple columns
+# ---------------------------------------------------
+
+print("\n--- Multiple Columns ---")
+
+print(df[["Name", "Marks"]])
+
+
+# ---------------------------------------------------
+# 12. Calculate basic statistics
+# ---------------------------------------------------
+
+print("\n--- Basic Statistics ---")
+
+print("Average marks:", df["Marks"].mean())
+print("Highest marks:", df["Marks"].max())
+print("Lowest marks:", df["Marks"].min())
+
+
+# ---------------------------------------------------
+# 13. Describe DataFrame
+# ---------------------------------------------------
+
+print("\n--- df.describe() ---")
+
+print(df.describe())
+
+
+# ---------------------------------------------------
+# 14. Add a new column
+# ---------------------------------------------------
+
+print("\n--- Adding a New Column ---")
+
+df["Result"] = ["Pass", "Pass", "Pass", "Pass", "Pass"]
+
+print(df)
+
+
+# ---------------------------------------------------
+# 15. Filter DataFrame
+# ---------------------------------------------------
+
+print("\n--- Students with Marks Greater Than 85 ---")
+
+high_marks = df[df["Marks"] > 85]
+
+print(high_marks)
+
+
+# ---------------------------------------------------
+# 16. Export DataFrame to CSV
+# ---------------------------------------------------
+
+print("\n--- Exporting DataFrame to CSV ---")
+
+df.to_csv("students.csv", index=False)
+
+print("DataFrame successfully exported to students.csv")
+
+
+# ---------------------------------------------------
+# 17. Import CSV file
+# ---------------------------------------------------
+
+print("\n--- Importing CSV File ---")
+
+df_new = pd.read_csv("students.csv")
+
+print("Data read from CSV:")
+print(df_new)
+
+
+# ---------------------------------------------------
+# 18. Display imported CSV information
+# ---------------------------------------------------
+
+print("\n--- Imported CSV Data ---")
+
+print("First 5 rows:")
+print(df_new.head())
+
+print("\nLast 5 rows:")
+print(df_new.tail())
+
+print("\nStatistical description:")
+print(df_new.describe())
+
+
+# ---------------------------------------------------
+# 19. Save the final DataFrame
+# ---------------------------------------------------
+
+df_new.to_csv("students_final.csv", index=False)
+
+print("\nFinal DataFrame exported to students_final.csv")
