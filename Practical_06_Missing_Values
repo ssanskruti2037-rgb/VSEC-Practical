@@ -1,0 +1,231 @@
+# Practical 6: Missing Values, Filtering, Sorting and Grouping
+# Aim: Handle missing values, replace data, filter rows and columns,
+# sort values and group data using Pandas.
+
+import pandas as pd
+import numpy as np
+
+
+# ---------------------------------------------------
+# 1. Create a DataFrame with missing values
+# ---------------------------------------------------
+
+print("--- Original DataFrame ---")
+
+data = {
+    "Name": ["Amit", "Rahul", "Sneha", "Priya", "Neha", "Rohan"],
+    "Age": [20, 21, np.nan, 22, 21, 20],
+    "Marks": [85, np.nan, 78, 92, np.nan, 88],
+    "Branch": [
+        "Computer",
+        "Computer",
+        "IT",
+        "Computer",
+        "IT",
+        "IT"
+    ]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+
+
+# ---------------------------------------------------
+# 2. Detect missing values using isnull()
+# ---------------------------------------------------
+
+print("\n--- Detecting Missing Values ---")
+
+print(df.isnull())
+
+
+# ---------------------------------------------------
+# 3. Count missing values in each column
+# ---------------------------------------------------
+
+print("\n--- Count of Missing Values ---")
+
+print(df.isnull().sum())
+
+
+# ---------------------------------------------------
+# 4. Fill missing values using fillna()
+# ---------------------------------------------------
+
+print("\n--- Filling Missing Values ---")
+
+df_filled = df.copy()
+
+df_filled["Age"] = df_filled["Age"].fillna(
+    df_filled["Age"].mean()
+)
+
+df_filled["Marks"] = df_filled["Marks"].fillna(
+    df_filled["Marks"].mean()
+)
+
+print(df_filled)
+
+
+# ---------------------------------------------------
+# 5. Fill missing values with a fixed value
+# ---------------------------------------------------
+
+print("\n--- Filling Missing Values with Fixed Values ---")
+
+df_fixed = df.copy()
+
+df_fixed["Age"] = df_fixed["Age"].fillna(0)
+df_fixed["Marks"] = df_fixed["Marks"].fillna(0)
+
+print(df_fixed)
+
+
+# ---------------------------------------------------
+# 6. Remove rows with missing values using dropna()
+# ---------------------------------------------------
+
+print("\n--- Removing Rows with Missing Values ---")
+
+df_dropped = df.dropna()
+
+print(df_dropped)
+
+
+# ---------------------------------------------------
+# 7. Filter rows
+# ---------------------------------------------------
+
+print("\n--- Filtering Rows ---")
+
+# Students with marks greater than 80
+high_marks = df_filled[df_filled["Marks"] > 80]
+
+print("Students with marks greater than 80:")
+print(high_marks)
+
+
+# ---------------------------------------------------
+# 8. Filter rows using multiple conditions
+# ---------------------------------------------------
+
+print("\n--- Multiple Conditions ---")
+
+filtered_data = df_filled[
+    (df_filled["Marks"] > 80) &
+    (df_filled["Branch"] == "Computer")
+]
+
+print("Computer students with marks greater than 80:")
+print(filtered_data)
+
+
+# ---------------------------------------------------
+# 9. Filter specific columns
+# ---------------------------------------------------
+
+print("\n--- Filtering Columns ---")
+
+selected_columns = df_filled[
+    ["Name", "Marks"]
+]
+
+print(selected_columns)
+
+
+# ---------------------------------------------------
+# 10. Sort values in ascending order
+# ---------------------------------------------------
+
+print("\n--- Sorting in Ascending Order ---")
+
+sorted_marks = df_filled.sort_values(
+    by="Marks"
+)
+
+print(sorted_marks)
+
+
+# ---------------------------------------------------
+# 11. Sort values in descending order
+# ---------------------------------------------------
+
+print("\n--- Sorting in Descending Order ---")
+
+sorted_marks_desc = df_filled.sort_values(
+    by="Marks",
+    ascending=False
+)
+
+print(sorted_marks_desc)
+
+
+# ---------------------------------------------------
+# 12. Sort by multiple columns
+# ---------------------------------------------------
+
+print("\n--- Sorting by Multiple Columns ---")
+
+sorted_multiple = df_filled.sort_values(
+    by=["Branch", "Marks"],
+    ascending=[True, False]
+)
+
+print(sorted_multiple)
+
+
+# ---------------------------------------------------
+# 13. Group data using groupby()
+# ---------------------------------------------------
+
+print("\n--- Grouping Data ---")
+
+grouped = df_filled.groupby("Branch")
+
+print("Average marks by branch:")
+print(grouped["Marks"].mean())
+
+
+# ---------------------------------------------------
+# 14. Group and calculate sum
+# ---------------------------------------------------
+
+print("\n--- Total Marks by Branch ---")
+
+print(
+    df_filled.groupby("Branch")["Marks"].sum()
+)
+
+
+# ---------------------------------------------------
+# 15. Group and calculate count
+# ---------------------------------------------------
+
+print("\n--- Number of Students by Branch ---")
+
+print(
+    df_filled.groupby("Branch")["Name"].count()
+)
+
+
+# ---------------------------------------------------
+# 16. Multiple groupby statistics
+# ---------------------------------------------------
+
+print("\n--- Multiple Group Statistics ---")
+
+group_statistics = df_filled.groupby("Branch")["Marks"].agg(
+    ["mean", "max", "min", "count"]
+)
+
+print(group_statistics)
+
+
+# ---------------------------------------------------
+# 17. Final DataFrame
+# ---------------------------------------------------
+
+print("\n--- Final DataFrame ---")
+
+print(df_filled)
