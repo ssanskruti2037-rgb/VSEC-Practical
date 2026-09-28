@@ -1,0 +1,121 @@
+import math
+
+# 1. Integer
+a = 10
+print("Integer:", a)
+print("Type:", type(a))
+print("Addition:", a + 5)
+print("Multiplication:", a * 2)
+
+# 2. Float
+b = 12.5
+print("\nFloat:", b)
+print("Type:", type(b))
+print("Division:", b / 2)
+print("Square:", b ** 2)
+
+# 3. Complex
+c = 3 + 4j
+print("\nComplex:", c)
+print("Type:", type(c))
+print("Real part:", c.real)
+print("Imaginary part:", c.imag)
+print("Conjugate:", c.conjugate())
+
+# 4. String
+name = "Python"
+print("\nString:", name)
+print("Type:", type(name))
+print("Length:", len(name))
+print("Uppercase:", name.upper())
+print("Lowercase:", name.lower())
+
+# 5. List
+numbers = [10, 20, 30, 40, 50]
+print("\nList:", numbers)
+print("Type:", type(numbers))
+
+numbers.append(60)
+print("After append:", numbers)
+
+print("Maximum:", max(numbers))
+print("Minimum:", min(numbers))
+print("Sum:", sum(numbers))
+
+# 6. Tuple
+t = (10, 20, 30, 40)
+print("\nTuple:", t)
+print("Type:", type(t))
+print("Length:", len(t))
+
+# 7. Dictionary
+student = {
+    "name": "Rahul",
+    "age": 20,
+    "branch": "Computer Engineering"
+}
+
+print("\nDictionary:", student)
+print("Type:", type(student))
+print("Student name:", student["name"])
+
+# 8. Set
+s = {10, 20, 30, 40, 50}
+print("\nSet:", s)
+print("Type:", type(s))
+
+s.add(60)
+print("After adding 60:", s)
+
+# Set operations
+s1 = {1, 2, 3, 4}
+s2 = {3, 4, 5, 6}
+
+print("Union:", s1.union(s2))
+print("Intersection:", s1.intersection(s2))
+print("Difference:", s1.difference(s2))
+
+# 9. Frozenset
+fs = frozenset([10, 20, 30, 40])
+print("\nFrozenset:", fs)
+print("Type:", type(fs))
+
+# 10. Boolean
+x = True
+y = False
+
+print("\nBoolean:", x)
+print("Type:", type(x))
+print("x AND y:", x and y)
+print("x OR y:", x or y)
+print("NOT x:", not x)
+
+# 11. NoneType
+value = None
+print("\nNone value:", value)
+print("Type:", type(value))
+
+# Built-in functions
+print("\n--- Built-in Functions ---")
+num = -25
+
+print("Absolute value:", abs(num))
+print("Power:", pow(2, 3))
+print("Maximum:", max(10, 20, 30))
+print("Minimum:", min(10, 20, 30))
+print("Sum:", sum([10, 20, 30]))
+
+# Math module functions
+print("\n--- Math Module Functions ---")
+
+number = 25
+
+print("Square root:", math.sqrt(number))
+print("Power:", math.pow(2, 5))
+print("Ceiling:", math.ceil(4.3))
+print("Floor:", math.floor(4.8))
+print("Factorial:", math.factorial(5))
+print("Value of pi:", math.pi)
+print("Sine of 90 degrees:", math.sin(math.radians(90)))
+print("Cosine of 0 degrees:", math.cos(math.radians(0)))
+print("Logarithm:", math.log(10))
