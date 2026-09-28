@@ -1,0 +1,200 @@
+# Practical 4: Random Numbers, Distributions and Statistics
+# Aim: Generate random numbers, simulate distributions and compute statistics.
+
+import numpy as np
+
+# ---------------------------------------------------
+# 1. Generate random numbers using np.random.rand()
+# ---------------------------------------------------
+
+print("--- Random Numbers using np.random.rand() ---")
+
+random_numbers = np.random.rand(10)
+
+print("10 random numbers between 0 and 1:")
+print(random_numbers)
+
+
+# ---------------------------------------------------
+# 2. Generate random numbers using np.random.randn()
+# ---------------------------------------------------
+
+print("\n--- Random Numbers using np.random.randn() ---")
+
+normal_standard = np.random.randn(10)
+
+print("10 random numbers from standard normal distribution:")
+print(normal_standard)
+
+
+# ---------------------------------------------------
+# 3. Generate random integers using np.random.randint()
+# ---------------------------------------------------
+
+print("\n--- Random Integers using np.random.randint() ---")
+
+random_integers = np.random.randint(1, 101, size=10)
+
+print("10 random integers between 1 and 100:")
+print(random_integers)
+
+
+# ---------------------------------------------------
+# 4. Generate numbers using np.random.normal()
+# ---------------------------------------------------
+
+print("\n--- Normal Distribution using np.random.normal() ---")
+
+normal_data = np.random.normal(
+    loc=50,
+    scale=10,
+    size=10
+)
+
+print("10 random values:")
+print(normal_data)
+
+
+# ---------------------------------------------------
+# 5. Generate a larger normal distribution
+# ---------------------------------------------------
+
+print("\n--- Simulating Normal Distribution ---")
+
+data = np.random.normal(
+    loc=50,
+    scale=10,
+    size=1000
+)
+
+print("First 10 values:")
+print(data[:10])
+
+print("Number of values:", len(data))
+
+
+# ---------------------------------------------------
+# 6. Calculate Mean
+# ---------------------------------------------------
+
+print("\n--- Mean ---")
+
+mean_value = np.mean(data)
+
+print("Mean:", mean_value)
+
+
+# ---------------------------------------------------
+# 7. Calculate Median
+# ---------------------------------------------------
+
+print("\n--- Median ---")
+
+median_value = np.median(data)
+
+print("Median:", median_value)
+
+
+# ---------------------------------------------------
+# 8. Calculate Standard Deviation
+# ---------------------------------------------------
+
+print("\n--- Standard Deviation ---")
+
+std_value = np.std(data)
+
+print("Standard Deviation:", std_value)
+
+
+# ---------------------------------------------------
+# 9. Calculate Minimum and Maximum
+# ---------------------------------------------------
+
+print("\n--- Minimum and Maximum ---")
+
+minimum = np.min(data)
+maximum = np.max(data)
+
+print("Minimum value:", minimum)
+print("Maximum value:", maximum)
+
+
+# ---------------------------------------------------
+# 10. Calculate Variance
+# ---------------------------------------------------
+
+print("\n--- Variance ---")
+
+variance = np.var(data)
+
+print("Variance:", variance)
+
+
+# ---------------------------------------------------
+# 11. Generate a 2D random array
+# ---------------------------------------------------
+
+print("\n--- 2D Random Array ---")
+
+random_matrix = np.random.rand(3, 4)
+
+print("3 x 4 random matrix:")
+print(random_matrix)
+
+
+# ---------------------------------------------------
+# 12. Generate random integers in a matrix
+# ---------------------------------------------------
+
+print("\n--- Random Integer Matrix ---")
+
+integer_matrix = np.random.randint(
+    1, 50, size=(3, 3)
+)
+
+print("3 x 3 random integer matrix:")
+print(integer_matrix)
+
+
+# ---------------------------------------------------
+# 13. Statistics of random integers
+# ---------------------------------------------------
+
+print("\n--- Statistics of Random Integers ---")
+
+print("Array:")
+print(random_integers)
+
+print("Mean:", np.mean(random_integers))
+print("Median:", np.median(random_integers))
+print("Standard Deviation:", np.std(random_integers))
+print("Minimum:", np.min(random_integers))
+print("Maximum:", np.max(random_integers))
+
+
+# ---------------------------------------------------
+# 14. Generate multiple normal distributions
+# ---------------------------------------------------
+
+print("\n--- Different Normal Distributions ---")
+
+distribution1 = np.random.normal(
+    loc=50,
+    scale=5,
+    size=10
+)
+
+distribution2 = np.random.normal(
+    loc=100,
+    scale=15,
+    size=10
+)
+
+print("Distribution 1:")
+print(distribution1)
+
+print("\nDistribution 2:")
+print(distribution2)
+
+print("\nMean of Distribution 1:", np.mean(distribution1))
+print("Mean of Distribution 2:", np.mean(distribution2))
