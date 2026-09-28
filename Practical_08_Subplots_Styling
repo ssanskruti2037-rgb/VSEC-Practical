@@ -1,0 +1,196 @@
+# Practical 8: Subplots, Styling, Legends and Grid
+# Aim: Create multiple plots using subplots and apply
+# styling, legends, grid and titles.
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+# ---------------------------------------------------
+# 1. Create data
+# ---------------------------------------------------
+
+x = np.arange(1, 11)
+
+y1 = x
+y2 = x ** 2
+y3 = x ** 3
+
+
+# ---------------------------------------------------
+# 2. Create multiple subplots
+# ---------------------------------------------------
+
+plt.figure(figsize=(12, 8))
+
+
+# ---------------------------------------------------
+# 3. First subplot - Line Plot
+# ---------------------------------------------------
+
+plt.subplot(2, 2, 1)
+
+plt.plot(
+    x,
+    y1,
+    color="blue",
+    marker="o",
+    linestyle="-",
+    linewidth=2,
+    label="y = x"
+)
+
+plt.title("Linear Function")
+plt.xlabel("X Values")
+plt.ylabel("Y Values")
+
+plt.legend()
+plt.grid(True)
+
+
+# ---------------------------------------------------
+# 4. Second subplot - Square Function
+# ---------------------------------------------------
+
+plt.subplot(2, 2, 2)
+
+plt.plot(
+    x,
+    y2,
+    color="red",
+    marker="s",
+    linestyle="--",
+    linewidth=2,
+    label="y = x²"
+)
+
+plt.title("Square Function")
+plt.xlabel("X Values")
+plt.ylabel("Y Values")
+
+plt.legend()
+plt.grid(True)
+
+
+# ---------------------------------------------------
+# 5. Third subplot - Cube Function
+# ---------------------------------------------------
+
+plt.subplot(2, 2, 3)
+
+plt.plot(
+    x,
+    y3,
+    color="green",
+    marker="^",
+    linestyle="-.",
+    linewidth=2,
+    label="y = x³"
+)
+
+plt.title("Cube Function")
+plt.xlabel("X Values")
+plt.ylabel("Y Values")
+
+plt.legend()
+plt.grid(True)
+
+
+# ---------------------------------------------------
+# 6. Fourth subplot - Comparison
+# ---------------------------------------------------
+
+plt.subplot(2, 2, 4)
+
+plt.plot(
+    x,
+    y1,
+    color="blue",
+    marker="o",
+    label="y = x"
+)
+
+plt.plot(
+    x,
+    y2,
+    color="red",
+    marker="s",
+    label="y = x²"
+)
+
+plt.plot(
+    x,
+    y3,
+    color="green",
+    marker="^",
+    label="y = x³"
+)
+
+plt.title("Comparison of Functions")
+plt.xlabel("X Values")
+plt.ylabel("Y Values")
+
+plt.legend()
+plt.grid(True)
+
+
+# ---------------------------------------------------
+# 7. Adjust layout
+# ---------------------------------------------------
+
+plt.tight_layout()
+
+plt.show()
+
+
+# ---------------------------------------------------
+# 8. Separate Figure with 1 x 2 Subplots
+# ---------------------------------------------------
+
+print("--- Creating 1 x 2 Subplots ---")
+
+plt.figure(figsize=(12, 5))
+
+
+# First subplot
+plt.subplot(1, 2, 1)
+
+students = ["Amit", "Rahul", "Sneha", "Priya", "Neha"]
+marks = [85, 90, 78, 92, 88]
+
+plt.bar(
+    students,
+    marks,
+    color="orange"
+)
+
+plt.title("Student Marks")
+plt.xlabel("Students")
+plt.ylabel("Marks")
+
+plt.grid(axis="y")
+
+
+# Second subplot
+plt.subplot(1, 2, 2)
+
+study_hours = [1, 2, 3, 4, 5, 6, 7, 8]
+student_marks = [45, 50, 55, 60, 65, 70, 78, 85]
+
+plt.scatter(
+    study_hours,
+    student_marks,
+    color="purple",
+    s=80
+)
+
+plt.title("Study Hours vs Marks")
+plt.xlabel("Study Hours")
+plt.ylabel("Marks")
+
+plt.grid(True)
+
+
+plt.tight_layout()
+
+plt.show()
