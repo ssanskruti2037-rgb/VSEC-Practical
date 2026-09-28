@@ -1,0 +1,214 @@
+# Practical 3: Vectorized Operations, Broadcasting and Universal Functions
+# Aim: Apply vectorized operations, broadcasting rules and universal functions.
+
+import numpy as np
+
+# ---------------------------------------------------
+# 1. Creating NumPy arrays
+# ---------------------------------------------------
+
+arr1 = np.array([10, 20, 30, 40, 50])
+arr2 = np.array([1, 2, 3, 4, 5])
+
+print("Array 1:")
+print(arr1)
+
+print("\nArray 2:")
+print(arr2)
+
+
+# ---------------------------------------------------
+# 2. Vectorized Addition
+# ---------------------------------------------------
+
+print("\n--- Vectorized Addition ---")
+
+result = arr1 + arr2
+
+print("Array 1 + Array 2:")
+print(result)
+
+
+# ---------------------------------------------------
+# 3. Vectorized Subtraction
+# ---------------------------------------------------
+
+print("\n--- Vectorized Subtraction ---")
+
+result = arr1 - arr2
+
+print("Array 1 - Array 2:")
+print(result)
+
+
+# ---------------------------------------------------
+# 4. Vectorized Multiplication
+# ---------------------------------------------------
+
+print("\n--- Vectorized Multiplication ---")
+
+result = arr1 * arr2
+
+print("Array 1 * Array 2:")
+print(result)
+
+
+# ---------------------------------------------------
+# 5. Vectorized Division
+# ---------------------------------------------------
+
+print("\n--- Vectorized Division ---")
+
+result = arr1 / arr2
+
+print("Array 1 / Array 2:")
+print(result)
+
+
+# ---------------------------------------------------
+# 6. Using np.add()
+# ---------------------------------------------------
+
+print("\n--- np.add() ---")
+
+result = np.add(arr1, arr2)
+
+print("Result using np.add():")
+print(result)
+
+
+# ---------------------------------------------------
+# 7. Broadcasting with a scalar
+# ---------------------------------------------------
+
+print("\n--- Broadcasting with Scalar ---")
+
+numbers = np.array([10, 20, 30, 40, 50])
+
+print("Original array:")
+print(numbers)
+
+print("Array + 5:")
+print(numbers + 5)
+
+print("Array * 2:")
+print(numbers * 2)
+
+print("Array - 3:")
+print(numbers - 3)
+
+
+# ---------------------------------------------------
+# 8. Broadcasting between arrays
+# ---------------------------------------------------
+
+print("\n--- Broadcasting Between Arrays ---")
+
+matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+
+vector = np.array([10, 20, 30])
+
+print("Matrix:")
+print(matrix)
+
+print("\nVector:")
+print(vector)
+
+print("\nMatrix + Vector:")
+print(matrix + vector)
+
+
+# ---------------------------------------------------
+# 9. Universal Function: np.sqrt()
+# ---------------------------------------------------
+
+print("\n--- np.sqrt() ---")
+
+values = np.array([1, 4, 9, 16, 25])
+
+print("Original values:")
+print(values)
+
+print("Square roots:")
+print(np.sqrt(values))
+
+
+# ---------------------------------------------------
+# 10. Universal Function: np.exp()
+# ---------------------------------------------------
+
+print("\n--- np.exp() ---")
+
+values = np.array([0, 1, 2, 3])
+
+print("Original values:")
+print(values)
+
+print("Exponential values:")
+print(np.exp(values))
+
+
+# ---------------------------------------------------
+# 11. Other Universal Functions
+# ---------------------------------------------------
+
+print("\n--- Other Universal Functions ---")
+
+values = np.array([1, 2, 3, 4, 5])
+
+print("Original values:")
+print(values)
+
+print("Square:")
+print(np.square(values))
+
+print("Absolute value:")
+print(np.abs(values))
+
+print("Maximum with 3:")
+print(np.maximum(values, 3))
+
+
+# ---------------------------------------------------
+# 12. Vectorized operation on a 2D array
+# ---------------------------------------------------
+
+print("\n--- Vectorized Operation on 2D Array ---")
+
+matrix = np.array([
+    [1, 4, 9],
+    [16, 25, 36]
+])
+
+print("Original matrix:")
+print(matrix)
+
+print("\nSquare root of matrix:")
+print(np.sqrt(matrix))
+
+
+# ---------------------------------------------------
+# 13. Broadcasting in 2D array
+# ---------------------------------------------------
+
+print("\n--- Broadcasting in 2D Array ---")
+
+matrix = np.array([
+    [10, 20, 30],
+    [40, 50, 60]
+])
+
+addition = np.array([1, 2, 3])
+
+print("Matrix:")
+print(matrix)
+
+print("\nArray to be broadcast:")
+print(addition)
+
+print("\nResult after broadcasting:")
+print(matrix + addition)
